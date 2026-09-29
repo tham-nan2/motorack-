@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MotoRack | Parrillas para motocicleta hechas a la medida</title>
+<meta name="description" content="Fabricamos parrillas de acero a la medida para tu motocicleta. Mira los modelos, nuestros trabajos y pide tu parrilla por WhatsApp.">
+<meta name="theme-color" content="#DDDFDA">
+<meta property="og:title" content="MotoRack | Parrillas para motocicleta hechas a la medida">
+<meta property="og:description" content="Parrillas de acero fabricadas para cada moto y cada uso. Pide la tuya por WhatsApp.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='6' fill='%231F45C4'/%3E%3Cpath d='M9 27V10l9 11 9-11v17' fill='none' stroke='%23F1F2EE' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================
+   MOTORACK · Identidad visual
+   Color: chapa de acero, tubo, azul de trazar, amarillo de aviso
+   Tipografía: Big Shoulders Display (títulos) + Hanken Grotesk (texto)
+   ========================================================== */
+:root{
+  --chapa:#DDDFDA;      /* chapa de acero, fondo base */
+  --chapa-osc:#C6C9C2;  /* chapa con sombra */
+  --papel:#F1F2EE;      /* papel de plano */
+  --tubo:#1C2530;       /* tubo negro, texto */
+  --tubo-2:#3A4654;     /* texto secundario */
+  --trazo:#1F45C4;      /* azul de trazar, acento principal */
+  --trazo-osc:#17359A;
+  --aviso:#F0BE1B;      /* amarillo de taller, solo para avisos */
+  --wa:#0B7A42;         /* verde de WhatsApp, solo para contacto */
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --texto:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ancho:1120px;
+  --pad:clamp(1.25rem,4vw,2.5rem);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--chapa);color:var(--tubo);font:400 1.0625rem/1.6 var(--texto)}
+img,svg{max-width:100%}
+a{color:var(--trazo)}
+:focus-visible{outline:3px solid var(--trazo);outline-offset:3px}
+
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.salto{position:absolute;left:-999px;top:0;background:var(--tubo);color:var(--papel);padding:.75rem 1rem;z-index:50}
+.salto:focus{left:0}
+
+.wrap{max-width:var(--ancho);margin-inline:auto;padding-inline:var(--pad)}
+
+/* ---------- Tipografía ---------- */
+.titulo{font-family:var(--display);font-weight:800;line-height:.95;letter-spacing:.005em;margin:0 0 1rem;font-size:clamp(2.4rem,6vw,3.75rem)}
+.titulo--hero{font-size:clamp(3.4rem,11vw,6.75rem);line-height:.88;margin-bottom:1.25rem}
+.intro{max-width:58ch;font-size:1.125rem;color:var(--tubo-2);margin:0}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:3rem;padding:.75rem 1.4rem;border:2px solid var(--tubo);border-radius:4px;background:transparent;color:var(--tubo);font:700 1rem/1 var(--texto);text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--tubo);color:var(--papel)}
+.btn--primario{background:var(--trazo);border-color:var(--trazo);color:#fff}
+.btn--primario:hover{background:var(--trazo-osc);border-color:var(--trazo-osc);color:#fff}
+.btn--wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn--wa:hover{background:#085e33;border-color:#085e33;color:#fff}
+.ico{width:1.25rem;height:1.25rem;flex:none}
+
+/* ---------- Cabecera ---------- */
+.cab{position:relative;padding-block:1rem}
+.cab .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.marca{display:inline-flex;align-items:center;gap:.6rem;color:var(--tubo);text-decoration:none;font:900 1.8rem/1 var(--display)}
+.marca svg{width:2.25rem;height:2.25rem}
+.nav ul{display:flex;gap:1.75rem;margin:0;padding:0;list-style:none}
+.nav a{color:var(--tubo);font-weight:500;text-decoration:none}
+.nav a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.3em}
+.menu-btn{display:none}
+@media (max-width:859px){
+  .cab-wa{display:none}
+  .menu-btn{display:inline-flex}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;z-index:20;background:var(--papel);border-block:2px solid var(--tubo);padding:.75rem var(--pad)}
+  .nav.abierto{display:block}
+  .nav ul{flex-direction:column;gap:0}
+  .nav a{display:block;padding:.85rem 0;font-size:1.125rem}
+}
+@media (min-width:860px){.cab-der{display:flex;align-items:center;gap:1.75rem}}
+
+/* ---------- Secciones ---------- */
+.seccion{padding-block:clamp(3.5rem,8vw,6rem);scroll-margin-top:1rem}
+.seccion--papel{background:var(--papel)}
+.seccion--oscura{background:var(--tubo);color:var(--papel)}
+.seccion--oscura .intro{color:var(--chapa-osc)}
+.seccion--oscura :focus-visible,.pie :focus-visible{outline-color:var(--aviso)}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:clamp(1.5rem,5vw,3.5rem) clamp(3.5rem,8vw,6rem)}
+.hero-grid{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:3rem}}
+.aviso{display:inline-flex;align-items:center;gap:.6rem;margin:0 0 1.5rem;padding:.45rem .9rem;border-radius:3px;background:var(--aviso);color:var(--tubo);font-weight:700;font-size:.95rem;line-height:1.3}
+.aviso::before{content:"";flex:none;width:.6rem;height:.6rem;border-radius:50%;background:var(--tubo)}
+.acciones{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+
+/* Plano de la parrilla (elemento memorable) */
+.plano{margin:0;border:2px solid var(--tubo);border-radius:4px;background-color:var(--papel);
+  background-image:linear-gradient(rgba(31,69,196,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(31,69,196,.09) 1px,transparent 1px);
+  background-size:24px 24px}
+.plano svg{display:block;width:100%;height:auto}
+.plano figcaption{padding:.7rem 1rem;border-top:2px solid var(--tubo);background:var(--papel);font-size:.9rem;color:var(--tubo-2)}
+.t-tubo{fill:none;stroke:var(--trazo);stroke-width:6;stroke-linejoin:round;stroke-linecap:round}
+.t-fino{fill:none;stroke:var(--trazo);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+.t-cota{fill:none;stroke:var(--tubo);stroke-width:1.5}
+.t-flecha{fill:var(--tubo);stroke:none}
+.t-txt{font:700 15px var(--texto);fill:var(--tubo)}
+.dibujo{stroke-dasharray:1;stroke-dashoffset:0;animation:trazar 1.8s cubic-bezier(.6,.05,.3,1) both}
+.cotas{animation:aparecer .6s ease 1.7s both}
+@keyframes trazar{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes aparecer{from{opacity:0}to{opacity:1}}
+
+/* ---------- Servicios ---------- */
+.servicios{margin:2.5rem 0 0}
+.servicio{display:grid;gap:.5rem;padding-block:1.5rem;border-top:2px solid var(--tubo)}
+.servicio:last-child{border-bottom:2px solid var(--tubo)}
+.servicio dt{font:800 clamp(1.7rem,4vw,2.1rem)/1 var(--display)}
+.servicio dd{margin:0;max-width:60ch;color:var(--tubo-2)}
+@media (min-width:760px){.servicio{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:2rem}}
+
+/* ---------- Modelos ---------- */
+.tabla-caja{margin-top:2.5rem;overflow-x:auto;border:2px solid var(--tubo);border-radius:4px;background:var(--papel)}
+.modelos{width:100%;min-width:640px;border-collapse:collapse}
+.modelos th,.modelos td{padding:1rem 1.25rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--chapa-osc)}
+.modelos thead th{background:var(--chapa);border-bottom:2px solid var(--tubo);font:800 2rem/1 var(--display)}
+.modelos tbody th{width:9.5rem;font-weight:700;color:var(--tubo-2)}
+.modelos tbody tr:last-child>*{border-bottom:0}
+.tras-tabla{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:1.75rem}
+.tras-tabla p{margin:0;max-width:52ch}
+
+/* ---------- Trabajos ---------- */
+.filtros{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.75rem 0 2rem}
+.filtro{min-height:2.75rem;padding:.5rem 1.1rem;border:2px solid var(--tubo);border-radius:4px;background:transparent;color:var(--tubo);font:700 .95rem/1 var(--texto);cursor:pointer}
+.filtro:hover{background:var(--chapa)}
+.filtro[aria-pressed="true"]{background:var(--tubo);color:var(--papel)}
+.galeria{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr))}
+.trabajo{margin:0}
+.trabajo[hidden]{display:none}
+.foto{display:grid;place-items:center;aspect-ratio:4/3;border:2px solid var(--tubo);border-radius:4px;color:var(--tubo-2);font-weight:500;
+  background:repeating-linear-gradient(135deg,var(--chapa-osc) 0 10px,var(--chapa) 10px 20px)}
+.trabajo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid var(--tubo);border-radius:4px}
+.trabajo figcaption{padding-top:.6rem;font-size:.95rem;color:var(--tubo-2)}
+.trabajo strong{display:block;color:var(--tubo)}
+
+/* ---------- Proceso ---------- */
+.pasos{display:grid;gap:2rem;margin:2.5rem 0 0;padding:0;list-style:none;counter-reset:paso}
+.pasos li{counter-increment:paso;padding-top:1.25rem;border-top:3px solid var(--chapa-osc)}
+.pasos li::before{content:counter(paso);display:block;margin-bottom:.5rem;color:var(--aviso);font:900 4.5rem/1 var(--display)}
+.pasos h3{margin:0 0 .5rem;font:800 2rem/1 var(--display)}
+.pasos p{margin:0;color:var(--chapa-osc);max-width:34ch}
+@media (min-width:760px){.pasos{grid-template-columns:repeat(4,1fr);gap:1.75rem}}
+
+/* ---------- Solicitud ---------- */
+.solicitud{display:grid;gap:2.5rem}
+@media (min-width:960px){.solicitud{grid-template-columns:.8fr 1.2fr;gap:3.5rem;align-items:start}}
+.preparar{margin:1.75rem 0 0;padding:0;list-style:none}
+.preparar li{padding-block:.7rem;border-top:2px solid var(--tubo)}
+.preparar li:last-child{border-bottom:2px solid var(--tubo)}
+.form{display:grid;gap:1.1rem;padding:clamp(1.25rem,3vw,2rem);border:2px solid var(--tubo);border-radius:4px;background:var(--papel)}
+@media (min-width:640px){.form{grid-template-columns:1fr 1fr}.form .completo{grid-column:1/-1}}
+.campo{display:grid;gap:.35rem;align-content:start}
+.campo label{font-weight:700}
+.campo .ayuda{font-size:.9rem;color:var(--tubo-2)}
+.campo input,.campo select,.campo textarea{width:100%;min-height:3rem;padding:.65rem .8rem;border:2px solid var(--tubo);border-radius:4px;background:#fff;color:var(--tubo);font:inherit}
+.campo textarea{min-height:7.5rem;resize:vertical}
+.form-pie{display:grid;gap:.75rem;justify-items:start}
+.form-pie p{margin:0;font-size:.95rem;color:var(--tubo-2);max-width:52ch}
+.form-estado{min-height:1.5rem;font-weight:700}
+
+/* ---------- Disponibilidad ---------- */
+.estado{display:grid;gap:1.5rem;margin-top:2rem;padding:clamp(1.25rem,3vw,2rem);border:2px solid var(--tubo);border-radius:4px;background:var(--chapa)}
+.estado-linea{display:flex;align-items:center;gap:.75rem;margin:0;font:800 clamp(1.8rem,4vw,2.6rem)/1 var(--display)}
+.semaforo{flex:none;width:1rem;height:1rem;border-radius:50%;background:var(--wa)}
+.estado[data-estado="limitado"] .semaforo{background:var(--aviso);box-shadow:0 0 0 2px var(--tubo)}
+.estado[data-estado="lleno"] .semaforo{background:#B3261E}
+.estado-datos{display:grid;gap:1rem;margin:0}
+@media (min-width:700px){.estado-datos{grid-template-columns:repeat(3,1fr)}}
+.estado-datos dt{font-size:.9rem;color:var(--tubo-2)}
+.estado-datos dd{margin:0;font-weight:700;font-size:1.25rem}
+.nota{margin:1.25rem 0 0;max-width:60ch;color:var(--tubo-2)}
+
+/* ---------- Pie ---------- */
+.pie{padding-block:clamp(3rem,7vw,5rem) 2rem;background:var(--tubo);color:var(--papel);scroll-margin-top:1rem}
+.pie a{color:var(--papel)}
+.pie .btn--wa{border-color:var(--papel)}
+.pie-grid{display:grid;gap:2.5rem}
+@media (min-width:800px){.pie-grid{grid-template-columns:1.2fr 1fr}}
+.pie-datos{display:grid;gap:1.25rem;margin:0}
+.pie-datos dt{font-size:.9rem;color:var(--chapa-osc)}
+.pie-datos dd{margin:0;font-size:1.125rem}
+.pie-legal{margin:3rem 0 0;padding-top:1.25rem;border-top:1px solid var(--tubo-2);font-size:.9rem;color:var(--chapa-osc)}
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+.flotante{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:30;box-shadow:0 2px 0 rgba(0,0,0,.35)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .dibujo,.cotas{animation:none}
+}
+</style>
+</head>
+
+<body>
+<!-- Iconos y logo reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="logo-m" viewBox="0 0 36 36">
+    <rect width="36" height="36" rx="6" fill="#1F45C4"/>
+    <path d="M9 27V10l9 11 9-11v17" fill="none" stroke="#F1F2EE" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ico-chat" viewBox="0 0 24 24">
+    <path d="M4 20l1.4-4.3A8.5 8.5 0 1 1 8.3 18.7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<a class="salto" href="#contenido">Ir al contenido</a>
+
+<header class="cab">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="MotoRack, ir al inicio">
+      <svg aria-hidden="true"><use href="#logo-m"/></svg>
+      MotoRack
+    </a>
+    <div class="cab-der">
+      <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menú</button>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#modelos">Modelos</a></li>
+          <li><a href="#trabajos">Trabajos</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#disponibilidad">Disponibilidad</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--wa cab-wa" data-wa href="#solicitar">
+        <svg class="ico" aria-hidden="true"><use href="#ico-chat"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- ===================== INICIO ===================== -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="aviso" id="hero-aviso">Pide tu parrilla por WhatsApp</p>
+      <h1 class="titulo titulo--hero">Parrillas para tu moto, hechas a tu medida</h1>
+      <p class="intro">Fabricamos parrillas de acero para cada modelo y cada uso. Cuéntanos tu moto y te decimos cuál le queda.</p>
+      <div class="acciones">
+        <a class="btn btn--primario" href="#solicitar">Pedir mi parrilla</a>
+        <a class="btn btn--wa" data-wa href="#solicitar">
+          <svg class="ico" aria-hidden="true"><use href="#ico-chat"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <figure class="plano">
+      <svg viewBox="0 0 540 420" role="img" aria-labelledby="plano-t plano-d">
+        <title id="plano-t">Plano de una parrilla para motocicleta</title>
+        <desc id="plano-d">Vista superior de una parrilla de acero con dos travesaños, cuatro agujeros de anclaje, 32 centímetros de ancho y 24 de largo.</desc>
+
+        <!-- Parrilla -->
+        <path class="t-tubo dibujo" pathLength="1" d="M160 90H360L420 330H100Z"/>
+        <path class="t-fino dibujo" pathLength="1" d="M140 170H380"/>
+        <path class="t-fino dibujo" pathLength="1" d="M120 250H400"/>
+        <path class="t-fino dibujo" pathLength="1" d="M230 90V330"/>
+        <path class="t-fino dibujo" pathLength="1" d="M290 90V330"/>
+        <circle class="t-fino dibujo" pathLength="1" cx="180" cy="112" r="9"/>
+        <circle class="t-fino dibujo" pathLength="1" cx="340" cy="112" r="9"/>
+        <circle class="t-fino dibujo" pathLength="1" cx="130" cy="306" r="9"/>
+        <circle class="t-fino dibujo" pathLength="1" cx="390" cy="306" r="9"/>
+
+        <!-- Cotas y notas -->
+        <g class="cotas">
+          <text class="t-txt" x="260" y="70" text-anchor="middle">Frente de la moto</text>
+
+          <path class="t-cota" d="M92 58L172 104"/>
+          <text class="t-txt" x="24" y="50">Anclajes de fábrica</text>
+
+          <path class="t-cota" d="M100 338V384M420 338V384M100 376H420"/>
+          <path class="t-flecha" d="M100 376l12-5v10zM420 376l-12-5v10z"/>
+          <text class="t-txt" x="260" y="404" text-anchor="middle">Ancho 32 cm</text>
+
+          <path class="t-cota" d="M368 90H476M428 330H476M464 90V330"/>
+          <path class="t-flecha" d="M464 90l-5 12h10zM464 330l-5-12h10z"/>
+          <text class="t-txt" transform="translate(494 210) rotate(-90)" text-anchor="middle">Largo 24 cm</text>
+        </g>
+      </svg>
+      <figcaption>Vista superior de una parrilla de viaje. Medidas de ejemplo.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== SERVICIOS ===================== -->
+<section class="seccion seccion--papel" id="servicios">
+  <div class="wrap">
+    <h2 class="titulo">Lo que hacemos en el taller</h2>
+    <p class="intro">Somos un taller familiar. Cada parrilla se fabrica para una moto y un uso concretos, no salen de una línea de producción.</p>
+    <dl class="servicios">
+      <div class="servicio">
+        <dt>Fabricación a la medida</dt>
+        <dd>Tomamos las medidas de tu moto y soldamos la parrilla en el taller, con el tamaño y la resistencia que necesitas.</dd>
+      </div>
+      <div class="servicio">
+        <dt>Instalación</dt>
+        <dd>Montamos la parrilla en tu moto y revisamos que quede firme antes de entregártela.</dd>
+      </div>
+      <div class="servicio">
+        <dt>Reparación y refuerzo</dt>
+        <dd>Soldamos y reforzamos parrillas quebradas o dobladas, aunque no las hayamos fabricado nosotros.</dd>
+      </div>
+      <div class="servicio">
+        <dt>Acabado</dt>
+        <dd>Pintura negra resistente al sol y a la lluvia, o el color que prefieras.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===================== MODELOS ===================== -->
+<!-- EDITAR: los valores de la tabla son ejemplos. Reemplázalos por los datos reales del taller. -->
+<section class="seccion" id="modelos">
+  <div class="wrap">
+    <h2 class="titulo">Tipos de parrilla</h2>
+    <p class="intro">Tres modelos base. Todos se ajustan a las medidas de tu moto.</p>
+
+    <div class="tabla-caja" role="region" aria-label="Comparación de tipos de parrilla" tabindex="0">
+      <table class="modelos">
+        <caption class="sr">Comparación de las parrillas de trabajo, viaje y ciudad</caption>
+        <thead>
+          <tr>
+            <th scope="col"><span class="sr">Característica</span></th>
+            <th scope="col">Trabajo</th>
+            <th scope="col">Viaje</th>
+            <th scope="col">Ciudad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Ideal para</th>
+            <td>Reparto y cargas diarias</td>
+            <td>Viajes largos con maletas o baúl</td>
+            <td>Mochila o caja pequeña</td>
+          </tr>
+          <tr>
+            <th scope="row">Carga máxima</th>
+            <td>Hasta 40 kg</td>
+            <td>Hasta 30 kg</td>
+            <td>Hasta 15 kg</td>
+          </tr>
+          <tr>
+            <th scope="row">Material</th>
+            <td>Tubo de acero de pared gruesa</td>
+            <td>Tubo de acero con placa para baúl</td>
+            <td>Tubo de acero liviano</td>
+          </tr>
+          <tr>
+            <th scope="row">Acabado</th>
+            <td>Pintura negra</td>
+            <td>Pintura negra mate</td>
+            <td>Negro o color a elección</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tras-tabla">
+      <p>¿No sabes cuál elegir? Dinos qué moto tienes y qué vas a cargar, y te recomendamos una.</p>
+      <a class="btn btn--primario" href="#solicitar">Pedir mi parrilla</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRABAJOS ===================== -->
+<!--
+  EDITAR: cada .foto es un espacio para una fotografía real.
+  Para poner tu foto, reemplaza el <div class="foto">…</div> por:
+  <img src="img/trabajo-01.webp" alt="Parrilla de trabajo instalada en una Honda XR150L" width="800" height="600" loading="lazy">
+  Guarda las fotos en la carpeta img/ (formato .webp o .jpg, unos 800 px de ancho).
+-->
+<section class="seccion seccion--papel" id="trabajos">
+  <div class="wrap">
+    <h2 class="titulo">Trabajos realizados</h2>
+    <p class="intro">Parrillas que ya salieron del taller. Filtra por tipo para ver las que se parecen a la que buscas.</p>
+
+    <div class="filtros" role="group" aria-label="Filtrar trabajos por tipo">
+      <button class="filtro" type="button" data-tipo="todas" aria-pressed="true">Todas</button>
+      <button class="filtro" type="button" data-tipo="trabajo" aria-pressed="false">Trabajo</button>
+      <button class="filtro" type="button" data-tipo="viaje" aria-pressed="false">Viaje</button>
+      <button class="filtro" type="button" data-tipo="ciudad" aria-pressed="false">Ciudad</button>
+    </div>
+
+    <div class="galeria">
+      <figure class="trabajo" data-tipo="trabajo">
+        <div class="foto" role="img" aria-label="Foto pendiente: parrilla de trabajo en Honda XR150L">Foto pendiente</div>
+        <figcaption><strong>Honda XR150L</strong>Parrilla de trabajo</figcaption>
+      </figure>
+      <figure class="trabajo" data-tipo="viaje">
+        <div class="foto" role="img" aria-label="Foto pendiente: parrilla de viaje en Suzuki DR650">Foto pendiente</div>
+        <figcaption><strong>Suzuki DR650</strong>Parrilla de viaje</figcaption>
+      </figure>
+      <figure class="trabajo" data-tipo="ciudad">
+        <div class="foto" role="img" aria-label="Foto pendiente: parrilla de ciudad en Honda CB125">Foto pendiente</div>
+        <figcaption><strong>Honda CB125</strong>Parrilla de ciudad</figcaption>
+      </figure>
+      <figure class="trabajo" data-tipo="trabajo">
+        <div class="foto" role="img" aria-label="Foto pendiente: parrilla de trabajo en Yamaha YBR125">Foto pendiente</div>
+        <figcaption><strong>Yamaha YBR125</strong>Parrilla de trabajo</figcaption>
+      </figure>
+      <figure class="trabajo" data-tipo="viaje">
+        <div class="foto" role="img" aria-label="Foto pendiente: parrilla de viaje en Kawasaki Versys 300">Foto pendiente</div>
+        <figcaption><strong>Kawasaki Versys 300</strong>Parrilla de viaje</figcaption>
+      </figure>
+      <figure class="trabajo" data-tipo="ciudad">
+        <div class="foto" role="img" aria-label="Foto pendiente: parrilla de ciudad en Yamaha FZ">Foto pendiente</div>
+        <figcaption><strong>Yamaha FZ</strong>Parrilla de ciudad</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESO ===================== -->
+<section class="seccion seccion--oscura" id="proceso">
+  <div class="wrap">
+    <h2 class="titulo">Así se hace tu parrilla</h2>
+    <p class="intro">Cuatro pasos, del primer mensaje a la entrega.</p>
+    <ol class="pasos">
+      <li>
+        <h3>Medimos</h3>
+        <p>Nos dices marca, modelo y año de tu moto. Ajustamos las medidas con fotos o en el taller.</p>
+      </li>
+      <li>
+        <h3>Cotizamos</h3>
+        <p>Te damos precio, material y tiempo de entrega antes de empezar.</p>
+      </li>
+      <li>
+        <h3>Fabricamos</h3>
+        <p>Cortamos, doblamos y soldamos la parrilla, y la pintamos con acabado resistente.</p>
+      </li>
+      <li>
+        <h3>Entregamos</h3>
+        <p>La instalamos en tu moto y revisamos que quede firme antes de que te vayas.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== SOLICITAR ===================== -->
+<section class="seccion" id="solicitar">
+  <div class="wrap solicitud">
+    <div>
+      <h2 class="titulo">Pide tu parrilla personalizada</h2>
+      <p class="intro">Llena los datos de tu moto y te respondemos por WhatsApp con una cotización.</p>
+      <ul class="preparar">
+        <li>Marca, modelo y año de tu moto</li>
+        <li>Qué vas a cargar y cuánto pesa, más o menos</li>
+        <li>Fotos de la parte trasera de la moto, para enviarlas después por WhatsApp</li>
+      </ul>
+    </div>
+
+    <form class="form" id="form-solicitud" autocomplete="on">
+      <div class="campo">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+      </div>
+      <div class="campo">
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required>
+      </div>
+      <div class="campo">
+        <label for="marca">Marca de la moto</label>
+        <input id="marca" name="marca" type="text" placeholder="Honda" required>
+      </div>
+      <div class="campo">
+        <label for="modelo">Modelo</label>
+        <input id="modelo" name="modelo" type="text" placeholder="XR150L" required>
+      </div>
+      <div class="campo">
+        <label for="anio">Año</label>
+        <input id="anio" name="anio" type="number" inputmode="numeric" min="1980" max="2027" placeholder="2021">
+      </div>
+      <div class="campo">
+        <label for="cilindrada">Cilindrada</label>
+        <input id="cilindrada" name="cilindrada" type="text" placeholder="150 cc">
+      </div>
+      <div class="campo">
+        <label for="tipo">Tipo de parrilla</label>
+        <select id="tipo" name="tipo">
+          <option value="">No estoy seguro</option>
+          <option>Trabajo</option>
+          <option>Viaje</option>
+          <option>Ciudad</option>
+          <option>Otra, la explico en los comentarios</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="carga">Carga aproximada (kg)</label>
+        <input id="carga" name="carga" type="number" inputmode="numeric" min="0" max="200" placeholder="20">
+      </div>
+      <div class="campo completo">
+        <label for="comentarios">Comentarios</label>
+        <textarea id="comentarios" name="comentarios" aria-describedby="ayuda-comentarios"></textarea>
+        <span class="ayuda" id="ayuda-comentarios">Para qué usas la moto, color que prefieres o cualquier detalle que debamos saber.</span>
+      </div>
+      <div class="completo form-pie">
+        <button class="btn btn--wa" type="submit">
+          <svg class="ico" aria-hidden="true"><use href="#ico-chat"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <p>Se abrirá WhatsApp con tu solicitud lista para enviar. Si tienes fotos de la moto, mándalas en ese mismo chat.</p>
+        <p class="form-estado" id="form-estado" role="status"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== DISPONIBILIDAD ===================== -->
+<section class="seccion seccion--papel" id="disponibilidad">
+  <div class="wrap">
+    <h2 class="titulo">Disponibilidad</h2>
+    <p class="intro">Cuántos pedidos podemos recibir ahora y cuánto tardamos en entregar.</p>
+
+    <div class="estado" id="estado" data-estado="abierto">
+      <p class="estado-linea"><span class="semaforo" aria-hidden="true"></span><span id="disp-titulo">Consulta la disponibilidad por WhatsApp</span></p>
+      <dl class="estado-datos">
+        <div><dt>Entrega estimada</dt><dd id="disp-plazo">Según el modelo</dd></div>
+        <div><dt>Cupos esta semana</dt><dd id="disp-cupos">Por confirmar</dd></div>
+        <div><dt>Última actualización</dt><dd id="disp-fecha">-</dd></div>
+      </dl>
+    </div>
+    <p class="nota">Los tiempos cambian según la cantidad de pedidos. Confirma tu fecha de entrega por WhatsApp.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== CONTACTO ===================== -->
+<!-- EDITAR: dirección, horario y redes -->
+<footer class="pie" id="contacto">
+  <div class="wrap">
+    <div class="pie-grid">
+      <div>
+        <h2 class="titulo">Hablemos de tu moto</h2>
+        <p class="intro">La forma más rápida de contactarnos es WhatsApp.</p>
+        <div class="acciones">
+          <a class="btn btn--wa" data-wa href="#solicitar">
+            <svg class="ico" aria-hidden="true"><use href="#ico-chat"/></svg>
+            Escribir por WhatsApp
+          </a>
+        </div>
+      </div>
+      <dl class="pie-datos">
+        <div><dt>Taller</dt><dd>[Dirección del taller]</dd></div>
+        <div><dt>Horario</dt><dd>[Días y horas de atención]</dd></div>
+        <div><dt>Redes</dt><dd>[Instagram o Facebook del negocio]</dd></div>
+      </dl>
+    </div>
+    <p class="pie-legal">© 2026 MotoRack. Parrillas para motocicleta fabricadas a la medida.</p>
+  </div>
+</footer>
+
+<a class="btn btn--wa flotante" data-wa href="#solicitar" aria-label="Escribir por WhatsApp">
+  <svg class="ico" aria-hidden="true"><use href="#ico-chat"/></svg>
+  WhatsApp
+</a>
+
+<script>
+/* ==========================================================
+   CONFIGURACIÓN: lo único que necesitas editar para mantener la página
+   ========================================================== */
+
+// Número de WhatsApp del negocio: código de país + número, sin "+", espacios ni guiones.
+const NEGOCIO = { whatsapp: "50600000000" };
+
+// Disponibilidad actual. estado: "abierto" | "limitado" | "lleno"
+const DISPONIBILIDAD = {
+  estado: "abierto",
+  plazo: "7 a 10 días",
+  cupos: "3 de 5 libres",
+  actualizado: "2026-09-28"   // AAAA-MM-DD
+};
+
+/* ========================================================== */
+
+const waUrl = (texto) => `https://wa.me/${NEGOCIO.whatsapp}?text=${encodeURIComponent(texto)}`;
+
+// Enlaces de WhatsApp
+document.querySelectorAll("[data-wa]").forEach((a) => {
+  a.href = waUrl("Hola MotoRack, quiero información sobre una parrilla para mi moto.");
+  a.target = "_blank";
+  a.rel = "noopener";
+});
+
+// Menú móvil
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.getElementById("nav");
+menuBtn.addEventListener("click", () => {
+  const abierto = nav.classList.toggle("abierto");
+  menuBtn.setAttribute("aria-expanded", String(abierto));
+});
+nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
+  nav.classList.remove("abierto");
+  menuBtn.setAttribute("aria-expanded", "false");
+}));
+
+// Filtro de trabajos
+const filtros = document.querySelectorAll(".filtro");
+filtros.forEach((boton) => boton.addEventListener("click", () => {
+  filtros.forEach((f) => f.setAttribute("aria-pressed", String(f === boton)));
+  const tipo = boton.dataset.tipo;
+  document.querySelectorAll(".trabajo").forEach((t) => {
+    t.hidden = tipo !== "todas" && t.dataset.tipo !== tipo;
+  });
+}));
+
+// Disponibilidad
+(function () {
+  const titulos = {
+    abierto: "Aceptando pedidos",
+    limitado: "Quedan pocos cupos",
+    lleno: "Lista de espera"
+  };
+  const d = DISPONIBILIDAD;
+  const titulo = titulos[d.estado] || titulos.abierto;
+  document.getElementById("estado").dataset.estado = d.estado;
+  document.getElementById("disp-titulo").textContent = titulo;
+  document.getElementById("disp-plazo").textContent = d.plazo;
+  document.getElementById("disp-cupos").textContent = d.cupos;
+  const fecha = new Date(d.actualizado + "T12:00:00");
+  document.getElementById("disp-fecha").textContent = isNaN(fecha)
+    ? d.actualizado
+    : fecha.toLocaleDateString("es", { day: "numeric", month: "long", year: "numeric" });
+  document.getElementById("hero-aviso").textContent = `${titulo}: entrega estimada en ${d.plazo}`;
+})();
+
+// Formulario: arma el mensaje y abre WhatsApp
+// (Para recibir también las solicitudes por correo, se puede añadir Formspree o Web3Forms más adelante.)
+const form = document.getElementById("form-solicitud");
+const estado = document.getElementById("form-estado");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const datos = new FormData(form);
+  const v = (k) => (datos.get(k) || "").toString().trim();
+
+  const lineas = [
+    "Hola MotoRack, quiero cotizar una parrilla personalizada.",
+    "",
+    `Nombre: ${v("nombre")}`,
+    `Teléfono: ${v("telefono")}`,
+    `Moto: ${[v("marca"), v("modelo"), v("anio")].filter(Boolean).join(" ")}`
+  ];
+  if (v("cilindrada")) lineas.push(`Cilindrada: ${v("cilindrada")}`);
+  if (v("tipo")) lineas.push(`Tipo de parrilla: ${v("tipo")}`);
+  if (v("carga")) lineas.push(`Carga aproximada: ${v("carga")} kg`);
+  if (v("comentarios")) lineas.push(`Comentarios: ${v("comentarios")}`);
+
+  estado.textContent = "Abriendo WhatsApp…";
+  const url = waUrl(lineas.join("\n"));
+  const ventana = window.open(url, "_blank");
+  if (!ventana) window.location.href = url;
+});
+</script>
+</body>
+</html>
